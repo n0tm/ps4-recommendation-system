@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Playstation Search Java</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">Войти</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Логин</string>
+    <string name="prompt_password">Пароль</string>
+    <string name="action_sign_in">Войти</string>
+    <string name="register">Зарегистрироваться</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="title_activity_primary_auth">PrimaryAuthActivity</string>
+    <string name="dummy_button">Начать пользоваться YoptaPlay!</string>
+    <string name="dummy_content">Добро пожаловать в YoptaPlay!\n\nПомогите нам подобрать для вас самые лучшие игры, выберите из предложенных категорий свои любимые</string>
+
+    <string-array name="primary_auth_texts">
+    <item>Like the video</item>
+    <item>Subscribe to the channel</item>
+    </string-array>
+</resources>
