@@ -19,12 +19,13 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, MyRecyclerViewAdapter.ItemClickListener {
+        implements NavigationView.OnNavigationItemSelectedListener, GameCardsRCV.ItemClickListener {
 
-    MyRecyclerViewAdapter adapter;
+    GameCardsRCV adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,22 +51,28 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        initRecyclerView();
     }
 
     private void initRecyclerView()
     {
-        ArrayList<String> animalNames = new ArrayList<>();
+        List<HashMap<String, String>> games = new ArrayList<>();
 
-        animalNames.add("Horse");
-        animalNames.add("Cow");
-        animalNames.add("Camel");
-        animalNames.add("Sheep");
-        animalNames.add("Goat");
+        HashMap<String, String> tempData = new HashMap<>();
+
+        for (int i = 0; i < 10; i++) {
+            tempData.put("name", "Хопа");
+            tempData.put("description", "Desc");
+            tempData.put("image", "https://karaganda.gamerz.kz/wp-content/uploads/edd/2017/12/dd35d676433a3a4b75aa218976cdee63_b.jpg");
+
+            games.add(tempData);
+        }
 
         // set up the RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.rvAnimals);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapter(this, animalNames);
+        RecyclerView recyclerView = findViewById(R.id.gamesRCV);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        adapter = new GameCardsRCV(this, games);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
     }
@@ -116,7 +123,6 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-            initRecyclerView();
 
         } else if (id == R.id.nav_slideshow) {
         } else if (id == R.id.nav_manage) {

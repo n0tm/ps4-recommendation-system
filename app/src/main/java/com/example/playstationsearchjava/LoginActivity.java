@@ -200,8 +200,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         showProgress(false);
 
-        Thread thread = new Thread(runnable);
-        thread.start();
+        redirectToMenu();
+
+//        Thread thread = new Thread(runnable);
+//        thread.start();
 
     }
 

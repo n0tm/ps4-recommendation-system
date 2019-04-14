@@ -1,22 +1,36 @@
 package com.example.playstationsearchjava;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
 
-public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
+public class GameCardsRCV extends RecyclerView.Adapter<GameCardsRCV.ViewHolder> {
 
-    private List<String> mData;
+    Context context;
+
+    private List<HashMap<String, String>> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    MyRecyclerViewAdapter(Context context, List<String> data) {
+    GameCardsRCV(Context context, List<HashMap<String, String>> data) {
+        this.context = context;
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
@@ -31,8 +45,36 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.myTextView.setText(animal);
+        HashMap<String, String> game = mData.get(position);
+
+        String name = game.get("name");
+        String desc = game.get("description");
+
+
+//        URL url = null;
+//
+//        try {
+//            url = new URL(game.get("image"));
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        Bitmap imageBitmap = null;
+//
+//        try {
+//            imageBitmap = BitmapFactory.decodeStream(url.openConnection() .getInputStream());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+
+        Glide.with(this.context)
+                .load(mData.get(position).get("image"))
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.getImage());
+//        holder.image.setImageBitmap(imageBitmap);
+        holder.name.setText(name);
+        holder.description.setText(desc);
     }
 
     // total number of rows
@@ -44,13 +86,22 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView myTextView;
+        TextView name;
+        TextView description;
+        ImageView image;
 
         ViewHolder(View itemView) {
+
             super(itemView);
-            myTextView = itemView.findViewById(R.id.tvAnimalName);
+
+            image = itemView.findViewById(R.id.image);
+            name = itemView.findViewById(R.id.name);
+            description = itemView.findViewById(R.id.description);
+
             itemView.setOnClickListener(this);
         }
+
+        public ImageView getImage(){ return this.image;}
 
         @Override
         public void onClick(View view) {
@@ -59,7 +110,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     }
 
     // convenience method for getting data at click position
-    String getItem(int id) {
+    HashMap<String, String> getItem(int id) {
         return mData.get(id);
     }
 
