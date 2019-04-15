@@ -5,7 +5,7 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Настройки</string>
     <string name="title_activity_login">Войти</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Логин</string>
@@ -29,4 +29,11 @@
         <item>Like the video</item>
         <item>Subscribe to the channel</item>
     </string-array>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_home">Избранное</string>
+    <string name="title_dashboard">Топ игр</string>
+    <string name="title_notifications">Профиль</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

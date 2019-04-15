@@ -116,13 +116,6 @@ public class PrimaryAuthActivity extends AppCompatActivity implements Categories
         Animation animFadeIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadein);
         mContentView.startAnimation(animFadeIn);
 
-        // Set up the user interaction to manually show or hide the system UI.
-//        mContentView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                toggle();
-//            }
-//        });
         dummy_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -145,10 +138,6 @@ public class PrimaryAuthActivity extends AppCompatActivity implements Categories
             }
         });
 
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-//        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
     }
 
     private void redirect()
@@ -159,7 +148,7 @@ public class PrimaryAuthActivity extends AppCompatActivity implements Categories
             return;
         }
 
-        Intent Intent = new Intent(PrimaryAuthActivity.this, MainActivity.class);
+        Intent Intent = new Intent(PrimaryAuthActivity.this, MenuActivity.class);
         startActivity(Intent);
     }
 

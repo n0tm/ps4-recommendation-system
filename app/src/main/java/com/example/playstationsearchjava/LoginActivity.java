@@ -21,6 +21,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -209,7 +210,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private void redirectToMenu()
     {
-        Intent intent_AllTransaction = new Intent(LoginActivity.this, MainActivity.class);
+        Intent intent_AllTransaction = new Intent(LoginActivity.this, MenuActivity.class);
         startActivity(intent_AllTransaction);
     }
 
