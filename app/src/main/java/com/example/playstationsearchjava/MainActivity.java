@@ -80,6 +80,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onItemClick(View view, int position) {
         Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this, GameActivity.class);
+//            intent_AllTransaction.putExtra("user_id",  getIntent().getStringExtra("user_id") );
+        startActivity(intent);
     }
 
     @Override

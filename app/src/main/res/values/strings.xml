@@ -26,7 +26,7 @@
     <string name="dummy_content">Добро пожаловать в YoptaPlay!\n\nПомогите нам подобрать для вас самые лучшие игры, выберите из предложенных категорий свои любимые</string>
 
     <string-array name="primary_auth_texts">
-    <item>Like the video</item>
-    <item>Subscribe to the channel</item>
+        <item>Like the video</item>
+        <item>Subscribe to the channel</item>
     </string-array>
 </resources>
