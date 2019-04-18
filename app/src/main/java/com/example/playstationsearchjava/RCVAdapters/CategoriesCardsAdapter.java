@@ -1,4 +1,4 @@
-package com.example.playstationsearchjava;
+package com.example.playstationsearchjava.RCVAdapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.playstationsearchjava.R;
 
 import java.util.List;
 
@@ -16,7 +18,7 @@ private LayoutInflater mInflater;
 private ItemClickListener mClickListener;
 
         // data is passed into the constructor
-        CategoriesCardsAdapter(Context context, List<String> data) {
+        public CategoriesCardsAdapter(Context context, List<String> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         }
@@ -64,7 +66,7 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
     }
 
     // allows clicks events to be caught
-    void setClickListener(CategoriesCardsAdapter.ItemClickListener itemClickListener) {
+    public void setClickListener(CategoriesCardsAdapter.ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 

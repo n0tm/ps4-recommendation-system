@@ -21,7 +21,7 @@
         completions."
     </string>
 
-    <string name="title_activity_primary_auth">PrimaryAuthActivity</string>
+    <string name="title_activity_primary_auth">Категории</string>
     <string name="dummy_button">Начать пользоваться YoptaPlay!</string>
     <string name="dummy_content">Добро пожаловать в YoptaPlay!\n\nПомогите нам подобрать для вас самые лучшие игры, выберите из предложенных категорий свои любимые</string>
 

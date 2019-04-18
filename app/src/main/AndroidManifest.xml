@@ -13,12 +13,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
             android:name=".MenuActivity"
             android:label="@string/title_activity_menu"></activity>
-        <activity android:name=".GameActivity" />
+        <activity android:name=".GameCardActivity" />
         <activity
             android:name=".PrimaryAuthActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -33,11 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProfileSettingsActivity" />
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
