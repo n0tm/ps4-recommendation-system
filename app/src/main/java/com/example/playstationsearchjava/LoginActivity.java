@@ -39,11 +39,6 @@ import okhttp3.RequestBody;
 @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
 public class LoginActivity extends AppCompatActivity {
 
-    OkHttpClient client = new OkHttpClient();
-
-    // UI references.
-    private AutoCompleteTextView mEmailView;
-    private EditText mPasswordView;
     private String login;
     private String password;
     private View mProgressView;
@@ -65,8 +60,8 @@ public class LoginActivity extends AppCompatActivity {
 
         Button registerButton = findViewById(R.id.register);
         registerButton.setOnClickListener(view -> {
-            setLoginAndPassword();
-            Register();
+            Intent intent = new Intent(this, RegisterActivity.class);
+            startActivity(intent);
         });
 
     }
@@ -282,6 +277,16 @@ public class LoginActivity extends AppCompatActivity {
     private boolean isPasswordValid(String password) {
         return password.length() > 4;
     }
+
+//    private void switchForm()
+//    {
+//        View RegisterForm = findViewById(R.id.register_login);
+//        View LoginForm = findViewById(R.id.email_login_form);
+//
+//        switchForms(this.isLoginVisible ? LoginForm : RegisterForm, this.isLoginVisible ? RegisterForm : LoginForm);
+//
+//        this.isLoginVisible = !this.isLoginVisible;
+//    }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private void showProgress(final boolean show) {

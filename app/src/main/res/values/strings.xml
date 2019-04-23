@@ -8,32 +8,29 @@
     <string name="action_settings">Настройки</string>
     <string name="title_activity_login">Войти</string>
     <!-- Strings related to login -->
-    <string name="prompt_email">Логин</string>
+    <string name="prompt_login">Логин</string>
+    <string name="prompt_email">Email</string>
     <string name="prompt_password">Пароль</string>
     <string name="action_sign_in">Войти</string>
     <string name="register">Зарегистрироваться</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
+    <string name="error_invalid_email">Введите корректный email</string>
+    <string name="error_invalid_login">Логин должен быть больше 4 символов</string>
+    <string name="error_invalid_password">Пароль должен быть больше 4 символов</string>
+    <string name="error_incorrect_password">Неправильный логин или пароль</string>
+    <string name="error_field_required">Это обязательное поле...</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
 
     <string name="title_activity_primary_auth">Категории</string>
+    <string name="title_activity_register">Регистрация</string>
     <string name="dummy_button">Начать пользоваться YoptaPlay!</string>
     <string name="dummy_content">Добро пожаловать в YoptaPlay!\n\nПомогите нам подобрать для вас самые лучшие игры, выберите из предложенных категорий свои любимые</string>
 
-    <string-array name="primary_auth_texts">
-        <item>Like the video</item>
-        <item>Subscribe to the channel</item>
-    </string-array>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_home">Избранное</string>
     <string name="title_dashboard">Топ игр</string>
     <string name="title_notifications">Профиль</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
