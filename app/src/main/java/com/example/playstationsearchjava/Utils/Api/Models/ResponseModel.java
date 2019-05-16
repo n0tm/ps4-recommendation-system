@@ -1,64 +1,53 @@
 package com.example.playstationsearchjava.Utils.Api.Models;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import okhttp3.Headers;
 
 public class ResponseModel {
-    private Integer StatusCode;
-    private String StatusMsg;
     private JSONObject Response;
     private Headers Headers;
 
-    public ResponseModel(Integer StatusCode,
-            String StatusMsg,
-            JSONObject Response,
-            Headers Headers)
+    public ResponseModel(JSONObject Response, Headers headers)
     {
-        this.StatusCode = StatusCode;
-        this.StatusMsg = StatusMsg;
         this.Response = Response;
-        this.Headers = Headers;
-    }
-
-    public ResponseModel(Integer StatusCode,
-                         String StatusMsg,
-                         JSONObject Response)
-    {
-        this.StatusCode = StatusCode;
-        this.StatusMsg = StatusMsg;
-        this.Response = Response;
-    }
-
-    public ResponseModel(Integer StatusCode, String StatusMsg)
-    {
-        this.StatusCode = StatusCode;
-        this.StatusMsg = StatusMsg;
-    }
-
-    public ResponseModel(Integer StatusCode)
-    {
-        this.StatusCode = StatusCode;
+        this.Headers = headers;
     }
 
     public JSONObject getResponse() {
-        return Response;
+        try {
+            return this.Response.getJSONObject("result");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return new JSONObject();
+        }
+    }
+
+    public JSONObject getFullResponse()
+    {
+        return this.Response;
     }
 
     public Integer getStatusCode() {
-        return StatusCode;
+        try {
+            return this.Response.getInt("StatusCode");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 
     public String getStatusMsg() {
-        return StatusMsg;
+        try {
+            return this.Response.getString("StatusMsg");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 
     public okhttp3.Headers getHeaders() {
         return Headers;
-    }
-
-    public Boolean isNullResponse()
-    {
-        return (this.Response == null);
     }
 }

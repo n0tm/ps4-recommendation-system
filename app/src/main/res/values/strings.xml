@@ -25,12 +25,15 @@
 
     <string name="title_activity_primary_auth">Категории</string>
     <string name="title_activity_register">Регистрация</string>
-    <string name="dummy_button">Начать пользоваться YoptaPlay!</string>
-    <string name="dummy_content">Добро пожаловать в YoptaPlay!\n\nПомогите нам подобрать для вас самые лучшие игры, выберите из предложенных категорий свои любимые</string>
+    <string name="dummy_button">Начать пользоваться YoPlay!</string>
+    <string name="dummy_content">Добро пожаловать в YoPlay!\n\nПомогите нам подобрать для вас самые лучшие игры, выберите из предложенных категорий свои любимые</string>
 
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_home">Избранное</string>
+    <string name="title_search">Поиск</string>
     <string name="title_dashboard">Топ игр</string>
     <string name="title_notifications">Профиль</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

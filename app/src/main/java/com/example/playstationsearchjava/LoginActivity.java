@@ -12,6 +12,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.Build;
+import com.example.playstationsearchjava.R.anim.*;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,11 +21,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.playstationsearchjava.Utils.Api.Models.Game;
 import com.example.playstationsearchjava.Utils.Api.Models.ResponseModel;
 import com.example.playstationsearchjava.Utils.Api.ResponseStatusTypes;
 import com.example.playstationsearchjava.Utils.ToolsMethods;
 import com.example.playstationsearchjava.Utils.Api.YoApi;
 
+import java.util.List;
 import java.util.Random;
 
 import okhttp3.FormBody;
@@ -52,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         mLoginFormView = findViewById(R.id.email_login_form);
         mProgressView = findViewById(R.id.login_progress);
 
+
         Button mEmailSignInButton = findViewById(R.id.login_button);
         mEmailSignInButton.setOnClickListener(view -> {
             setLoginAndPassword();
@@ -63,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(this, RegisterActivity.class);
             startActivity(intent);
         });
+
 
     }
 
@@ -98,10 +103,7 @@ public class LoginActivity extends AppCompatActivity {
 
             ResponseModel Response = api.request(request);
 
-            Log.d("Response from request", Response.isNullResponse() ? Response.getResponse().toString() : "No response");
-            Log.d("StatusCode", String.valueOf(Response.getStatusCode()));
-            Log.d("StatusMsg", Response.getStatusMsg());
-            Log.d("Headers", Response.getHeaders().toString());
+            Log.d("Response from request", Response.getFullResponse().toString());
 
 
             if (Response.getStatusCode() == ResponseStatusTypes.OK) {

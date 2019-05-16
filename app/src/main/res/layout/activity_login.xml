@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bg"
+    android:background="@drawable/bg_gradient"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -31,17 +31,21 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite">
 
             <AutoCompleteTextView
                 android:id="@+id/login"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/prompt_login"
+                android:background="@drawable/sharp_input"
+                android:drawableLeft="@drawable/ic_email"
+                android:drawablePadding="15dp"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
+                android:paddingLeft="15dp"
                 android:singleLine="true"
                 android:textColor="@color/colorWhite"
                 android:textColorHighlight="@color/colorWhite"
@@ -52,20 +56,24 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite">
 
             <EditText
                 android:id="@+id/password"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/prompt_password"
+                android:background="@drawable/sharp_input"
+                android:drawableLeft="@drawable/ic_lock"
+                android:drawablePadding="15dp"
                 android:imeActionId="6"
                 android:imeActionLabel="@string/action_sign_in_short"
                 android:imeOptions="actionUnspecified"
                 android:inputType="textPassword"
                 android:maxLines="1"
+                android:paddingLeft="15dp"
                 android:singleLine="true"
                 android:textColor="@color/colorWhite"
                 android:textColorHighlight="@color/colorWhite"
@@ -74,26 +82,33 @@
 
         </android.support.design.widget.TextInputLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/register"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_primary_button"
+            android:text="@string/register"
+            android:textColor="@color/colorWhite" />
+
         <Button
             android:id="@+id/login_button"
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@color/design_default_color_primary"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/circle_primary_button"
             android:text="@string/action_sign_in"
             android:textColor="@color/colorWhite"
             android:textStyle="normal|bold|italic" />
-
-        <Button
-            android:id="@+id/register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@color/design_default_color_primary"
-            android:text="@string/register"
-            android:textColor="@color/colorWhite" />
-
     </LinearLayout>
 
 </LinearLayout>

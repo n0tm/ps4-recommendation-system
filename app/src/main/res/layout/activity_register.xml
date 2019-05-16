@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bg"
+    android:background="@drawable/bg_gradient"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -33,13 +33,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorWhite"
+            android:gravity="center"
             android:textColorHint="@color/colorWhite">
 
             <EditText
                 android:id="@+id/email"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/prompt_email"
+                android:background="@drawable/sharp_input"
+                android:drawableLeft="@drawable/ic_email"
+                android:drawablePadding="15dp"
                 android:imeActionId="6"
                 android:imeActionLabel="@string/action_sign_in_short"
                 android:imeOptions="actionUnspecified"
@@ -56,14 +59,18 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite">
 
             <AutoCompleteTextView
                 android:id="@+id/login"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/prompt_login"
+                android:background="@drawable/sharp_input"
+                android:drawableLeft="@drawable/ic_login"
+                android:drawablePadding="15dp"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:singleLine="true"
@@ -76,15 +83,19 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
             android:layout_height="wrap_content"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite">
 
             <EditText
                 android:id="@+id/password"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/prompt_password"
+                android:background="@drawable/sharp_input"
+                android:drawableLeft="@drawable/ic_lock"
+                android:drawablePadding="15dp"
                 android:imeActionId="6"
                 android:imeActionLabel="@string/action_sign_in_short"
                 android:imeOptions="actionUnspecified"
@@ -102,8 +113,8 @@
             android:id="@+id/register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@color/design_default_color_primary"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/circle_primary_button"
             android:text="@string/register"
             android:textColor="@color/colorWhite" />
 

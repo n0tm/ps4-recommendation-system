@@ -12,14 +12,17 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import com.example.playstationsearchjava.Utils.Api.Methods.Games;
+import com.example.playstationsearchjava.Utils.Api.Methods.Genres;
 import com.example.playstationsearchjava.Utils.Api.Models.ResponseModel;
-import com.example.playstationsearchjava.Utils.Exceptions.YoApiException;
 
 public class YoApi {
 
     private ResponseModel Response;
+    private Genres Genres;
+    private Games Games;
 
-    private static final String API_URL = "http://159.69.35.190:8000/";
+    public static final String API_URL = "http://159.69.35.190:8000/";
 
     public Request.Builder getRequestQuery(String method)
     {
@@ -29,6 +32,7 @@ public class YoApi {
         return new Request.Builder()
                 .url(API_URL);
     }
+
 
     public ResponseModel request(Request request)
     {
@@ -47,11 +51,7 @@ public class YoApi {
             JSONObject response = new JSONObject(responseString);
             Headers headers = responseData.headers();
 
-            this.Response = new ResponseModel(
-                    response.getInt("StatusCode"),
-                    response.getString("StatusMsg"),
-                    response.isNull("response") ? new JSONObject() : response.getJSONObject("response"),
-                    headers);
+            this.Response = new ResponseModel(response, headers);
 
 //            if (this.Response.getStatusCode() > 300) throw new YoApiException(ApiExceptions.parse(this.Response.getStatusCode()));
 
@@ -66,5 +66,19 @@ public class YoApi {
         }
 
         return null;
+    }
+
+    public Genres Genres()
+    {
+        if (this.Genres == null) this.Genres = new Genres();
+
+        return this.Genres;
+    }
+
+    public Games Games()
+    {
+        if (this.Games == null) this.Games = new Games();
+
+        return this.Games;
     }
 }

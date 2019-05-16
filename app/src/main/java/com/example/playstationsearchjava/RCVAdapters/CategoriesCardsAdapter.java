@@ -61,7 +61,7 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
 }
 
     // convenience method for getting data at click position
-    String getItem(int id) {
+    public String getItem(int id) {
         return mData.get(id);
     }
 

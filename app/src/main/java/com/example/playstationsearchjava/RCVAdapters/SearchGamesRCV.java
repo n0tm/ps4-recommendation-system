@@ -1,88 +1,75 @@
 package com.example.playstationsearchjava.RCVAdapters;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.playstationsearchjava.R;
-import java.util.HashMap;
+import com.example.playstationsearchjava.Utils.Api.Models.Game;
+
 import java.util.List;
 
-public class GameCardsRCV extends RecyclerView.Adapter<GameCardsRCV.ViewHolder> {
+public class SearchGamesRCV extends RecyclerView.Adapter<SearchGamesRCV.ViewHolder> {
 
-    Context context;
-
-    private List<HashMap<String, String>> mData;
+    private List<Game> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
+    private Context context;
 
     // data is passed into the constructor
-    public GameCardsRCV(Context context, List<HashMap<String, String>> data) {
-        this.context = context;
+    public SearchGamesRCV(Context context, List<Game> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
+        this.context = context;
     }
 
     // inflates the row layout from xml when needed
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.activity_games, parent, false);
+        View view = mInflater.inflate(R.layout.horisontal_game_card, parent, false);
         return new ViewHolder(view);
     }
 
-    // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
-        HashMap<String, String> game = mData.get(position);
-
-        String name = game.get("name");
-        String desc = game.get("description");
-
-        if (desc.length() > 170) desc = desc.substring(0, 170) + "...";
-
+        Game game = mData.get(position);
+        holder.name.setText(game.getName());
+        holder.developer.setText(game.getDeveloper());
+        holder.genres.setText(game.getGenres().split(String.valueOf(','))[0]);
         Glide.with(this.context)
-                .load(mData.get(position).get("image"))
+                .load(mData.get(position).getImageLink())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(holder.getImage());
-
-        holder.name.setText(name);
-        holder.description.setText(desc);
+                .into(holder.image);
     }
 
+    // total number of rows
     @Override
     public int getItemCount() {
         return mData.size();
     }
 
 
+    // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name;
-        TextView description;
+        TextView developer;
+        TextView genres;
         ImageView image;
-        LinearLayout item;
 
         ViewHolder(View itemView) {
-
             super(itemView);
-
-            image = itemView.findViewById(R.id.image);
-            item = itemView.findViewById(R.id.item_content);
             name = itemView.findViewById(R.id.name);
-            description = itemView.findViewById(R.id.description);
-
-            item.setOnClickListener(this);
+            developer = itemView.findViewById(R.id.developer);
+            genres = itemView.findViewById(R.id.genre);
+            image = itemView.findViewById(R.id.image);
+            itemView.setOnClickListener(this);
         }
-
-        public ImageView getImage(){ return this.image;}
 
         @Override
         public void onClick(View view) {
@@ -91,16 +78,12 @@ public class GameCardsRCV extends RecyclerView.Adapter<GameCardsRCV.ViewHolder> 
     }
 
     // convenience method for getting data at click position
-    public HashMap<String, String> getItem(int id) {
+    public Game getItem(int id) {
         return mData.get(id);
     }
 
-    public List<HashMap<String, String>> getmData() {
-        return mData;
-    }
-
     // allows clicks events to be caught
-    public void setClickListener(ItemClickListener itemClickListener) {
+    public void setClickListener(SearchGamesRCV.ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 
