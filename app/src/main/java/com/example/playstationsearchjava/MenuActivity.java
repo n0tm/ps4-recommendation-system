@@ -23,9 +23,9 @@ public class MenuActivity extends AppCompatActivity {
                     case R.id.top_games:
                         fragment = new TopGamesFragment();
                         break;
-                    case R.id.profile:
-                        fragment = new FavoriteGamesFragment();
-                        break;
+//                    case R.id.profile:
+//                        fragment = new FavoriteGamesFragment();
+//                        break;
                     case R.id.search:
                         fragment = new SearchFragment();
                         break;
